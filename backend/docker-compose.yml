@@ -1,0 +1,36 @@
+services:
+
+  mysql:
+    image: mysql:8.0
+    container_name: restaurant-mysql
+
+    restart: always
+
+    environment:
+      MYSQL_DATABASE: restaurant_db
+      MYSQL_ROOT_PASSWORD: Rashmi1705
+
+    ports:
+      - "3306:3306"
+
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  app:
+    build: .
+
+    container_name: restaurant-backend
+
+    depends_on:
+      - mysql
+
+    ports:
+      - "8080:8080"
+
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/restaurant_db
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: Rashmi1705
+
+volumes:
+  mysql-data:
