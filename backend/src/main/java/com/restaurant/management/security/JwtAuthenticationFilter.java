@@ -36,7 +36,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     public JwtAuthenticationFilter(
             JwtService jwtService,
             CustomUserDetailsService userDetailsService
-    ){
+    ) {
 
         this.jwtService = jwtService;
         this.userDetailsService = userDetailsService;
@@ -55,32 +55,17 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     ) throws ServletException, IOException {
 
 
+
         String path = request.getServletPath();
 
 
 
-        // Allow CORS preflight request
-        if(request.getMethod().equalsIgnoreCase("OPTIONS")){
-
-            response.setStatus(HttpServletResponse.SC_OK);
-
-            filterChain.doFilter(
-                    request,
-                    response
-            );
-
-            return;
-
-        }
-
-
-
-
-        // Skip authentication for public APIs
+        // Skip authentication for public endpoints
 
         if(path.startsWith("/api/auth")
                 || path.startsWith("/swagger-ui")
-                || path.startsWith("/v3/api-docs")){
+                || path.startsWith("/v3/api-docs")
+                || request.getMethod().equalsIgnoreCase("OPTIONS")){
 
 
             filterChain.doFilter(
@@ -96,16 +81,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
 
 
-        String authHeader =
-                request.getHeader("Authorization");
+        String authHeader = request.getHeader("Authorization");
 
 
 
-
-        // No JWT token present
+        // No token -> continue without authentication
 
         if(authHeader == null ||
-                !authHeader.startsWith("Bearer ")){
+                !authHeader.startsWith("Bearer ")) {
+
 
             filterChain.doFilter(
                     request,
@@ -120,62 +104,64 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
 
 
-        String token =
-                authHeader.substring(7);
+        try {
+
+
+            String token =
+                    authHeader.substring(7);
+
+
+
+            String username =
+                    jwtService.extractUsername(token);
 
 
 
 
-
-        String username =
-                jwtService.extractUsername(token);
-
-
-
-
-
-        if(username != null &&
-                SecurityContextHolder
-                        .getContext()
-                        .getAuthentication() == null){
+            if(username != null &&
+                    SecurityContextHolder
+                            .getContext()
+                            .getAuthentication() == null) {
 
 
 
-            UserDetails userDetails =
-                    userDetailsService
-                            .loadUserByUsername(username);
+                UserDetails userDetails =
+                        userDetailsService
+                                .loadUserByUsername(username);
 
 
 
 
-
-            if(jwtService.validateToken(token)){
-
+                if(jwtService.validateToken(token)) {
 
 
-                UsernamePasswordAuthenticationToken authentication =
+                    UsernamePasswordAuthenticationToken authentication =
+                            new UsernamePasswordAuthenticationToken(
 
-                        new UsernamePasswordAuthenticationToken(
+                                    userDetails,
+                                    null,
+                                    userDetails.getAuthorities()
 
-                                userDetails,
-
-                                null,
-
-                                userDetails.getAuthorities()
-
-                        );
+                            );
 
 
 
-                SecurityContextHolder
-                        .getContext()
-                        .setAuthentication(authentication);
+                    SecurityContextHolder
+                            .getContext()
+                            .setAuthentication(authentication);
 
+                }
 
             }
 
-        }
 
+        } catch(Exception e){
+
+            System.out.println(
+                    "JWT Error: " + e.getMessage()
+            );
+
+        }
 
 
 

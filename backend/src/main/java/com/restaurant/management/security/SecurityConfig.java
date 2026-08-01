@@ -14,6 +14,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import org.springframework.web.cors.CorsConfigurationSource;
+
 
 @Configuration
 @EnableMethodSecurity
@@ -22,15 +24,19 @@ public class SecurityConfig {
 
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
+    private final CorsConfigurationSource corsConfigurationSource;
+
+
 
     public SecurityConfig(
-            JwtAuthenticationFilter jwtAuthenticationFilter
+            JwtAuthenticationFilter jwtAuthenticationFilter,
+            CorsConfigurationSource corsConfigurationSource
     ) {
 
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
+        this.corsConfigurationSource = corsConfigurationSource;
 
     }
-
 
 
 
@@ -42,17 +48,20 @@ public class SecurityConfig {
 
         http
 
+                // Disable CSRF for REST API
                 .csrf(csrf -> csrf.disable())
 
 
-                // Uses CorsConfig.java bean
-                .cors(cors -> {})
+                // Enable CORS using CorsConfig.java
+                .cors(cors ->
+                        cors.configurationSource(corsConfigurationSource)
+                )
 
 
                 .authorizeHttpRequests(auth -> auth
 
 
-                        // Allow CORS preflight requests
+                        // Allow browser preflight requests
                         .requestMatchers(
                                 org.springframework.http.HttpMethod.OPTIONS,
                                 "/**"
@@ -60,43 +69,39 @@ public class SecurityConfig {
                         .permitAll()
 
 
-
-                        // Public endpoints
+                        // Authentication APIs
                         .requestMatchers(
-
-                                "/api/auth/**",
-
-                                "/swagger-ui/**",
-
-                                "/swagger-ui.html",
-
-                                "/v3/api-docs/**"
-
+                                "/api/auth/**"
                         )
                         .permitAll()
 
 
+                        // Swagger
+                        .requestMatchers(
+                                "/swagger-ui/**",
+                                "/swagger-ui.html",
+                                "/v3/api-docs/**"
+                        )
+                        .permitAll()
 
-                        // Protected APIs
+
+                        // Everything else requires JWT
                         .anyRequest()
                         .authenticated()
-
 
                 )
 
 
-
+                // JWT validation filter
                 .addFilterBefore(
                         jwtAuthenticationFilter,
                         UsernamePasswordAuthenticationFilter.class
                 );
 
 
-
         return http.build();
 
     }
-
 
 
 
