@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -19,8 +20,7 @@ public class CorsConfig {
     public CorsConfigurationSource corsConfigurationSource(){
 
 
-        CorsConfiguration configuration =
-                new CorsConfiguration();
+        CorsConfiguration configuration = new CorsConfiguration();
 
 
 
@@ -33,9 +33,8 @@ public class CorsConfig {
 
                         "http://127.0.0.1:5500",
                         "http://localhost:5500",
-                        "https://*.vercel.app/login.html",
-                        "https://*.netlify.app"
 
+                        "https://restaurant-management-system-snowy-nu.vercel.app"
 
                 )
 
