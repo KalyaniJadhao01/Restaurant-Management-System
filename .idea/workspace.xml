@@ -4,7 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="178391a9-a710-4a0f-b255-3293f254fdc0" name="Changes" comment="" />
+    <list default="true" id="178391a9-a710-4a0f-b255-3293f254fdc0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/bills.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/bills.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/categories.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/categories.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/customers.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/customers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/bills.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/bills.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/categories.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/categories.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/customers.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/customers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/payments.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/payments.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/reports.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/reports.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/js/tables.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/js/tables.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/orders.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/orders.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/payments.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/payments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/reports.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/reports.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/settings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tables.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tables.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

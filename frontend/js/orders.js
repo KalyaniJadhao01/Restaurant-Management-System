@@ -2,10 +2,10 @@
 // API CONFIGURATION
 // ======================================
 
-const ORDER_API = "http://localhost:8080/api/orders";
-const CUSTOMER_API = "http://localhost:8080/api/customers";
-const TABLE_API = "http://localhost:8080/api/tables/available";
-const MENU_API = "http://localhost:8080/api/menu-items/available";
+const ORDER_API = `${API_BASE_URL}/api/orders`;
+const CUSTOMER_API =`${API_BASE_URL}/api/customers`;
+const TABLE_API = `${API_BASE_URL}/api/tables/available`;
+const MENU_API = `${API_BASE_URL}/api/menu-items/available`
 
 const token = localStorage.getItem("token");
 

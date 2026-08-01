@@ -2,7 +2,7 @@
 // Dashboard API Configuration
 // ===============================
 
-const API_URL = "http://localhost:8080/api/dashboard/summary";
+const API_URL = `${API_BASE_URL}/api/dashboard/summary`;
 
 
 // ===============================

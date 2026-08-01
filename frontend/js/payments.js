@@ -2,7 +2,7 @@
 // PAYMENT API CONFIGURATION
 // ==========================================
 
-const API_URL = "http://localhost:8080/api/payments";
+const API_URL = `${API_BASE_URL}/api/payments`;
 
 const token = localStorage.getItem("token");
 

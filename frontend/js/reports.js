@@ -3,7 +3,7 @@
 // ==========================================
 
 const DASHBOARD_API =
-    "http://localhost:8080/api/dashboard";
+    `${API_BASE_URL}/api/dashboard`;
 
 
 const token =

@@ -2,8 +2,8 @@
 // API Configuration
 // ===============================
 
-const MENU_API = "http://localhost:8080/api/menu-items";
-const CATEGORY_API = "http://localhost:8080/api/categories";
+const MENU_API = `${API_BASE_URL}/api/menu-items`;
+const CATEGORY_API = `${API_BASE_URL}/api/categories`;
 
 const token = localStorage.getItem("token");
 

@@ -6,7 +6,7 @@
 
 // ---------------- Base URL ----------------
 
-const BASE_URL = "http://localhost:8080/api/tables";
+const BASE_URL = `${API_BASE_URL}/api/tables`;
 
 // ---------------- JWT Token ----------------
 

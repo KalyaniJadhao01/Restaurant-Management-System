@@ -2,7 +2,7 @@
 // BILL API CONFIGURATION
 // ===========================================
 
-const BILL_API = "http://localhost:8080/api/bills";
+const BILL_API = `${API_BASE_URL}/api/bills`;
 
 const token = localStorage.getItem("token");
 

@@ -2,7 +2,7 @@
 // API CONFIG
 // ===============================
 
-const API_URL = "http://localhost:8080/api/categories";
+const API_URL = `${API_BASE_URL}/api/categories`;
 
 const token = localStorage.getItem("token");
 

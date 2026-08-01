@@ -8,7 +8,7 @@
 // API
 // ===============================
 
-const CUSTOMER_API = "http://localhost:8080/api/customers";
+const CUSTOMER_API = `${API_BASE_URL}/api/customers`;
 
 const token = localStorage.getItem("token");
 
