@@ -1,5 +1,4 @@
-package com.restaurant.management.service.auth;
-
+package com.restaurant.management.service;
 import com.restaurant.management.entity.auth.User;
 import com.restaurant.management.repository.auth.UserRepository;
 import org.springframework.security.core.userdetails.*;

@@ -1,7 +1,7 @@
 package com.restaurant.management.security;
 
 
-import com.restaurant.management.service.auth.CustomUserDetailsService;
+import com.restaurant.management.service.CustomUserDetailsService;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
