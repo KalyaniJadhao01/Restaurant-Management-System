@@ -1,16 +1,13 @@
 package com.restaurant.management.config;
 
 
+import java.util.List;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
-
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-
-
-import java.util.List;
 
 
 
@@ -35,7 +32,9 @@ public class CorsConfig {
                         "http://localhost:3000",
 
                         "http://127.0.0.1:5500",
-                        "http://localhost:5500"
+                        "http://localhost:5500",
+                        "https://6a6e345f8a2a1e0fb3e0737d--grand-sunshine-8b08a3.netlify.app"
+
 
                 )
 

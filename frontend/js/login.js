@@ -2,7 +2,7 @@
 // Backend Login API
 // ===============================
 
-const LOGIN_URL = `${API_BASE_URL}/auth/login`;
+const LOGIN_URL = `${API_BASE_URL}/api/auth/login`;
 
 
 // ===============================
