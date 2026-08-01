@@ -33,7 +33,8 @@ public class CorsConfig {
 
                         "http://127.0.0.1:5500",
                         "http://localhost:5500",
-                        "https://6a6e345f8a2a1e0fb3e0737d--grand-sunshine-8b08a3.netlify.app"
+                        "https://restaurant-management-system-snowy-nu.vercel.app/login.html"
+//                        "https://6a6e345f8a2a1e0fb3e0737d--grand-sunshine-8b08a3.netlify.app"
 
 
                 )
