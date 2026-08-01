@@ -39,7 +39,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     ){
 
         this.jwtService = jwtService;
-
         this.userDetailsService = userDetailsService;
 
     }
@@ -56,8 +55,24 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     ) throws ServletException, IOException {
 
 
-
         String path = request.getServletPath();
+
+
+
+        // Allow CORS preflight request
+        if(request.getMethod().equalsIgnoreCase("OPTIONS")){
+
+            response.setStatus(HttpServletResponse.SC_OK);
+
+            filterChain.doFilter(
+                    request,
+                    response
+            );
+
+            return;
+
+        }
+
 
 
 
@@ -86,6 +101,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
 
 
+
+        // No JWT token present
+
         if(authHeader == null ||
                 !authHeader.startsWith("Bearer ")){
 
@@ -101,13 +119,17 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
 
 
+
         String token =
                 authHeader.substring(7);
 
 
 
+
+
         String username =
                 jwtService.extractUsername(token);
+
 
 
 
@@ -122,6 +144,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             UserDetails userDetails =
                     userDetailsService
                             .loadUserByUsername(username);
+
 
 
 
@@ -152,6 +175,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             }
 
         }
+
 
 
 
