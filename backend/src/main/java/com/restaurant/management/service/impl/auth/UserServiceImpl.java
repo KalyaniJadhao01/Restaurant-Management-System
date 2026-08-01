@@ -39,9 +39,10 @@ public class UserServiceImpl implements UserService {
             throw new DuplicateResourceException("Phone number already exists.");
         }
 
-        Role role = roleRepository.findByName(request.getRole())
-                .orElseThrow(() -> new ResourceNotFoundException("Role not found"));
-
+        Role role = roleRepository.findByName("Customer")
+                .orElseThrow(()->
+                        new ResourceNotFoundException("Default role CUSTOMER not found"
+                        ));
         User user = new User();
 
         user.setFullName(request.getFullName());

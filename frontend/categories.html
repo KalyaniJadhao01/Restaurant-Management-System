@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RestaurantMS | Categories</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/categories.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="logo">
+                <i class="fa-solid fa-utensils"></i>
+                <span>RestaurantMS</span>
+            </div>
+
+            <ul>
+
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fa-solid fa-chart-line"></i>
+                        Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="menu.html">
+                        <i class="fa-solid fa-bowl-food"></i>
+                        Menu
+                    </a>
+                </li>
+
+                <li class="active">
+                    <a href="categories.html">
+                        <i class="fa-solid fa-layer-group"></i>
+                        Categories
+                    </a>
+                </li>
+
+                <li>
+                    <a href="customers.html">
+                        <i class="fa-solid fa-users"></i>
+                        Customers
+                    </a>
+                </li>
+
+                <li>
+                    <a href="tables.html">
+                        <i class="fa-solid fa-chair"></i>
+                        Tables
+                    </a>
+                </li>
+
+                <li>
+                    <a href="orders.html">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        Orders
+                    </a>
+                </li>
+
+                <li>
+                    <a href="reports.html">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        Reports
+                    </a>
+                </li>
+
+                <li>
+                    <a href="settings.html">
+                        <i class="fa-solid fa-gear"></i>
+                        Settings
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <button class="logout-btn" onclick="logout()">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </button>
+
+    </aside>
+
+
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <header class="navbar">
+
+            <div>
+
+                <h2>Category Management</h2>
+
+                <p>Manage restaurant categories</p>
+
+            </div>
+
+            <div class="profile">
+
+                <i class="fa-solid fa-user-circle"></i>
+
+                <span>Admin</span>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- Toolbar -->
+
+        <section class="toolbar">
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-search"></i>
+
+                <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search category...">
+
+            </div>
+
+            <button
+                    class="add-btn"
+                    onclick="openModal()">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Add Category
+
+            </button>
+
+        </section>
+
+
+
+        <!-- Table -->
+
+        <section class="table-card">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Name</th>
+
+                    <th>Status</th>
+
+                    <th>Created</th>
+
+                    <th>Actions</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody id="categoryTableBody">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- Modal -->
+
+<div class="modal" id="categoryModal">
+
+    <div class="modal-box">
+
+        <h2 id="modalTitle">Add Category</h2>
+
+        <div class="form-group">
+
+            <label for="categoryName">
+                Category Name
+            </label>
+
+            <input
+                    type="text"
+                    id="categoryName"
+                    placeholder="Enter category name">
+
+        </div>
+
+        <div class="modal-actions">
+
+            <button
+                    class="save-btn"
+                    onclick="saveCategory()">
+
+                Save
+
+            </button>
+
+            <button
+                    class="cancel-btn"
+                    onclick="closeModal()">
+
+                Cancel
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script src="js/categories.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RestaurantMS | Payments</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/payments.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <div>
+
+                <div class="logo">
+
+                    <i class="fa-solid fa-utensils"></i>
+
+                    <span>RestaurantMS</span>
+
+                </div>
+
+                <ul>
+
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="fa-solid fa-chart-line"></i>
+                            Dashboard
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="menu.html">
+                            <i class="fa-solid fa-bowl-food"></i>
+                            Menu
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="categories.html">
+                            <i class="fa-solid fa-layer-group"></i>
+                            Categories
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="customers.html">
+                            <i class="fa-solid fa-users"></i>
+                            Customers
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="tables.html">
+                            <i class="fa-solid fa-chair"></i>
+                            Tables
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="orders.html">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            Orders
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="bills.html">
+                            <i class="fa-solid fa-file-invoice-dollar"></i>
+                            Bills
+                        </a>
+                    </li>
+
+                    <li class="active">
+                        <a href="payments.html">
+                            <i class="fa-solid fa-credit-card"></i>
+                            Payments
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="reports.html">
+                            <i class="fa-solid fa-chart-pie"></i>
+                            Reports
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="settings.html">
+                            <i class="fa-solid fa-gear"></i>
+                            Settings
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <button class="logout-btn" onclick="logout()">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+            </button>
+
+        </aside>
+
+        <!-- ================= MAIN ================= -->
+
+        <main class="main-content">
+
+            <header class="navbar">
+
+                <div>
+
+                    <h2>
+
+                        Payment Management
+
+                    </h2>
+
+                    <p>
+
+                        Manage restaurant payments
+
+                    </p>
+
+                </div>
+
+                <div class="profile">
+
+                    <i class="fa-solid fa-user-circle"></i>
+
+                    <span>
+
+                        Admin
+
+                    </span>
+
+                </div>
+
+            </header>
+
+            <section class="toolbar">
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-search"></i>
+
+                    <input id="searchInput" type="text" placeholder="Search payments...">
+
+                </div>
+
+                <button class="add-btn" onclick="openModal()">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    New Payment
+
+                </button>
+
+            </section>
+
+            <section class="table-card">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Bill ID</th>
+
+                            <th>Amount</th>
+
+                            <th>Method</th>
+
+                            <th>Status</th>
+
+                            <th>Transaction Ref.</th>
+
+                            <th>Date</th>
+
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="paymentTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- ================= PAYMENT MODAL ================= -->
+
+    <div class="modal" id="paymentModal">
+
+        <div class="modal-box">
+
+            <h2 id="modalTitle">
+
+                New Payment
+
+            </h2>
+
+            <div class="form-group">
+
+                <label for="billId">
+
+                    Bill ID
+
+                </label>
+
+                <input id="billId" type="number" placeholder="Enter Bill ID">
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="amount">
+
+                    Amount
+
+                </label>
+
+                <input id="amount" type="number" step="0.01" placeholder="Payment Amount">
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="paymentMethod">
+
+                    Payment Method
+
+                </label>
+
+                <select id="paymentMethod" title="Payment Method">
+
+                    <option value="CASH">Cash</option>
+
+                    <option value="CARD">Card</option>
+
+                    <option value="UPI">UPI</option>
+
+                    <option value="ONLINE">Online</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="paymentStatus">
+
+                    Payment Status
+
+                </label>
+
+                <select id="paymentStatus" title="Payment Status">
+
+                    <option value="PENDING">
+
+                        Pending
+
+                    </option>
+
+                    <option value="SUCCESS">
+
+                        Success
+
+                    </option>
+
+                    <option value="FAILED">
+
+                        Failed
+
+                    </option>
+
+                    <option value="REFUNDED">
+
+                        Refunded
+
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="modal-actions">
+
+                <button class="save-btn" type="button" onclick="savePayment()">
+
+                    <i class="fa-solid fa-floppy-disk"></i>
+
+                    Save Payment
+
+                </button>
+
+                <button class="cancel-btn" type="button" onclick="closeModal()">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                    Cancel
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Axios -->
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- Payments JS -->
+
+    <script src="js/payments.js"></script>
+
+</body>
+
+</html>

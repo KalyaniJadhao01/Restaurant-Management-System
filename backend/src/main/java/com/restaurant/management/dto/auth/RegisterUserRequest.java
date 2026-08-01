@@ -21,8 +21,8 @@ public class RegisterUserRequest {
     @NotBlank(message = "Phone is required")
     private String phone;
 
-    @NotBlank(message = "Role is required")
-    private String role;
+//    @NotBlank(message = "Role is required")
+//    private String role;
 
     public RegisterUserRequest() {}
 
@@ -58,11 +58,11 @@ public class RegisterUserRequest {
         this.phone = phone;
     }
 
-    public String getRole() {
-        return role;
-    }
+//    public String getRole() {
+//        return role;
+//    }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
+//    public void setRole(String role) {
+//        this.role = role;
+//    }
 }

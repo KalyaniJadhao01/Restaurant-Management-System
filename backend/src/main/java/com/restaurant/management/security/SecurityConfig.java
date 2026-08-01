@@ -11,9 +11,6 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -29,7 +26,9 @@ public class SecurityConfig {
     public SecurityConfig(
             JwtAuthenticationFilter jwtAuthenticationFilter
     ){
+
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
+
     }
 
 
@@ -41,27 +40,33 @@ public class SecurityConfig {
 
 
         http
+
                 .csrf(csrf -> csrf.disable())
+
+
+                .cors(cors -> {})
 
 
                 .authorizeHttpRequests(auth -> auth
 
-                        // Public APIs
+
                         .requestMatchers(
-                                "/",
+
                                 "/api/auth/**",
 
-                                // Swagger
                                 "/swagger-ui/**",
+
                                 "/swagger-ui.html",
-                                "/v3/api-docs/**",
-                                "/api-docs/**"
 
-                        ).permitAll()
+                                "/v3/api-docs/**"
+
+                        )
+                        .permitAll()
 
 
-                        // Everything else requires JWT
-                        .anyRequest().authenticated()
+                        .anyRequest()
+                        .authenticated()
+
 
                 )
 
@@ -73,16 +78,10 @@ public class SecurityConfig {
 
 
         return http.build();
+
     }
 
 
-
-//    @Bean
-//    public PasswordEncoder passwordEncoder(){
-//
-//        return new BCryptPasswordEncoder();
-//
-//    }
 
 
 
@@ -91,8 +90,10 @@ public class SecurityConfig {
             AuthenticationConfiguration configuration
     ) throws Exception {
 
+
         return configuration.getAuthenticationManager();
 
     }
+
 
 }

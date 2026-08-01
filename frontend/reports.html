@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RestaurantMS | Reports</title>
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+    <link rel="stylesheet" href="css/reports.css">
+
+</head>
+
+
+<body>
+
+
+    <div class="container">
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+
+            <div>
+
+
+                <div class="logo">
+
+                    <i class="fa-solid fa-utensils"></i>
+
+                    <span>
+                        RestaurantMS
+                    </span>
+
+                </div>
+
+
+
+                <ul>
+
+
+                    <li>
+                        <a href="dashboard.html">
+
+                            <i class="fa-solid fa-chart-line"></i>
+
+                            Dashboard
+
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="menu.html">
+
+                            <i class="fa-solid fa-bowl-food"></i>
+
+                            Menu
+
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="categories.html">
+
+                            <i class="fa-solid fa-layer-group"></i>
+
+                            Categories
+
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="customers.html">
+
+                            <i class="fa-solid fa-users"></i>
+
+                            Customers
+
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="tables.html">
+
+                            <i class="fa-solid fa-chair"></i>
+
+                            Tables
+
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="orders.html">
+
+                            <i class="fa-solid fa-cart-shopping"></i>
+
+                            Orders
+
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="bills.html">
+
+                            <i class="fa-solid fa-file-invoice-dollar"></i>
+
+                            Bills
+
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="payments.html">
+
+                            <i class="fa-solid fa-credit-card"></i>
+
+                            Payments
+
+                        </a>
+                    </li>
+
+
+                    <li class="active">
+
+                        <a href="reports.html">
+
+                            <i class="fa-solid fa-chart-pie"></i>
+
+                            Reports
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+                        <a href="settings.html">
+
+                            <i class="fa-solid fa-gear"></i>
+
+                            Settings
+
+                        </a>
+                    </li>
+
+
+                </ul>
+
+
+            </div>
+
+
+
+            <button class="logout-btn" onclick="logout()">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+            </button>
+
+
+        </aside>
+
+
+
+
+
+        <!-- MAIN -->
+
+
+        <main class="main-content">
+
+
+
+            <header class="navbar">
+
+
+                <div>
+
+                    <h2>
+                        Reports & Analytics
+                    </h2>
+
+                    <p>
+                        Restaurant performance overview
+                    </p>
+
+
+                </div>
+
+
+
+                <div class="profile">
+
+                    <i class="fa-solid fa-user-circle"></i>
+
+                    <span>
+                        Admin
+                    </span>
+
+                </div>
+
+
+            </header>
+
+
+
+
+
+            <div class="report-header">
+
+
+                <button class="refresh-btn" onclick="loadReports()">
+
+                    <i class="fa-solid fa-rotate"></i>
+
+                    Refresh
+
+                </button>
+
+
+            </div>
+
+
+
+
+
+            <!-- SUMMARY CARDS -->
+
+
+            <section class="cards">
+
+
+
+                <div class="card">
+
+                    <i class="fa-solid fa-users"></i>
+
+                    <div>
+
+                        <h3 id="customersCount">
+                            0
+                        </h3>
+
+                        <p>
+                            Customers
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="card">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    <div>
+
+                        <h3 id="ordersCount">
+                            0
+                        </h3>
+
+                        <p>
+                            Orders
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+                <div class="card">
+
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+
+                    <div>
+
+                        <h3 id="billsCount">
+                            0
+                        </h3>
+
+                        <p>
+                            Bills
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+                <div class="card">
+
+                    <i class="fa-solid fa-money-bill-wave"></i>
+
+                    <div>
+
+                        <h3 id="revenue">
+                            ₹ 0
+                        </h3>
+
+                        <p>
+                            Revenue
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+            <!-- ORDER STATUS CARDS -->
+
+            <section class="cards">
+
+
+                <div class="card">
+
+                    <i class="fa-solid fa-clock"></i>
+
+                    <div>
+
+                        <h3 id="pendingOrders">
+                            0
+                        </h3>
+
+                        <p>
+                            Pending Orders
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="card">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    <div>
+
+                        <h3 id="completedOrders">
+                            0
+                        </h3>
+
+                        <p>
+                            Completed Orders
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+
+
+
+            <!-- CHART SECTION -->
+
+
+            <section class="charts">
+
+
+                <div class="chart-card">
+
+                    <h3>
+                        Sales Overview
+                    </h3>
+
+                    <canvas id="salesChart"></canvas>
+
+
+                </div>
+
+
+
+
+                <div class="chart-card">
+
+                    <h3>
+                        Popular Menu Items
+                    </h3>
+
+                    <canvas id="popularChart"></canvas>
+
+
+                </div>
+
+
+            </section>
+
+
+
+
+
+            <!-- POPULAR ITEMS TABLE -->
+
+
+            <section class="table-card">
+
+
+                <h3>
+                    Top Selling Items
+                </h3>
+
+
+                <table>
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Rank
+                            </th>
+
+                            <th>
+                                Item Name
+                            </th>
+
+                            <th>
+                                Quantity Sold
+                            </th>
+
+                        </tr>
+
+
+                    </thead>
+
+
+                    <tbody id="popularItemsTable">
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </section>
+
+
+
+        </main>
+
+
+    </div>
+
+
+
+
+
+    <!-- Chart JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <!-- Axios -->
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+    <script src="js/reports.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Restaurant Management | Tables</title>
+
+    <link rel="stylesheet"
+          href="css/tables.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- ================= Sidebar ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-utensils"></i>
+
+            <h2>RestaurantMS</h2>
+
+        </div>
+
+        <ul class="menu">
+
+            <li>
+
+                <a href="dashboard.html">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    Dashboard
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="categories.html">
+
+                    <i class="fa-solid fa-list"></i>
+
+                    Categories
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="menu.html">
+
+                    <i class="fa-solid fa-bowl-food"></i>
+
+                    Menu
+
+                </a>
+
+            </li>
+
+            <li class="active">
+
+                <a href="tables.html">
+
+                    <i class="fa-solid fa-chair"></i>
+
+                    Tables
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="customers.html">
+
+                    <i class="fa-solid fa-users"></i>
+
+                    Customers
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="orders.html">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    Orders
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="bills.html">
+
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+
+                    Bills
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="payments.html">
+
+                    <i class="fa-solid fa-credit-card"></i>
+
+                    Payments
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- ================= Main ================= -->
+
+    <main class="main-content">
+
+        <div class="page-header">
+
+            <div>
+
+                <h1>
+
+                    Restaurant Tables
+
+                </h1>
+
+                <p>
+
+                    Manage seating and availability
+
+                </p>
+
+            </div>
+
+            <button
+                    id="addTableBtn"
+                    class="btn-primary">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Add Table
+
+            </button>
+
+        </div>
+
+        <!-- ================= Toolbar ================= -->
+
+        <div class="toolbar">
+
+            <input
+
+                    type="text"
+
+                    id="searchInput"
+
+                    placeholder="Search table number...">
+
+            <button
+
+                    id="refreshBtn"
+
+                    class="btn-secondary">
+
+                <i class="fa-solid fa-rotate"></i>
+
+                Refresh
+
+            </button>
+
+            <button
+
+                    id="availableBtn"
+
+                    class="btn-success">
+
+                <i class="fa-solid fa-check"></i>
+
+                Available
+
+            </button>
+
+        </div>
+
+        <!-- ================= Table ================= -->
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Table No.</th>
+
+                    <th>Capacity</th>
+
+                    <th>Status</th>
+
+                    <th>Actions</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody id="tableBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- ================= Pagination ================= -->
+
+        <div class="pagination">
+
+            <button
+                    id="prevBtn">
+
+                Previous
+
+            </button>
+
+            <span id="pageInfo">
+
+                Page 1
+
+            </span>
+
+            <button
+                    id="nextBtn">
+
+                Next
+
+            </button>
+
+        </div>
+
+        <!-- ================= Modal ================= -->
+
+        <div
+                id="tableModal"
+                class="modal">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <h2 id="modalTitle">
+
+                        Add Table
+
+                    </h2>
+
+                    <button
+
+                            id="closeModalBtn"
+
+                            type="button"
+
+                            class="close-btn">
+
+                        &times;
+
+                    </button>
+
+                </div>
+
+                <form id="tableForm">
+
+                    <input
+                            type="hidden"
+                            id="tableId">
+
+                    <div class="form-group">
+
+                        <label for="tableNumber">
+
+                            Table Number
+
+                        </label>
+
+                        <input
+
+                                type="text"
+
+                                id="tableNumber"
+
+                                required>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="capacity">
+
+                            Capacity
+
+                        </label>
+
+                        <input
+
+                                type="number"
+
+                                id="capacity"
+
+                                min="1"
+
+                                required>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="status">
+
+                            Status
+
+                        </label>
+
+                        <select id="status">
+
+                            <option value="AVAILABLE">
+
+                                AVAILABLE
+
+                            </option>
+
+                            <option value="OCCUPIED">
+
+                                OCCUPIED
+
+                            </option>
+
+                            <option value="RESERVED">
+
+                                RESERVED
+
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                                        <div class="form-actions">
+
+                        <button
+                                type="submit"
+                                id="saveBtn"
+                                class="btn-primary">
+
+                            <i class="fa-solid fa-floppy-disk"></i>
+
+                            Save Table
+
+                        </button>
+
+                        <button
+                                type="button"
+                                id="cancelBtn"
+                                class="btn-danger">
+
+                            <i class="fa-solid fa-xmark"></i>
+
+                            Cancel
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<!-- ================= Loading ================= -->
+
+<div
+        id="loadingOverlay"
+        class="loading-overlay">
+
+    <div class="loader"></div>
+
+    <p>Loading...</p>
+
+</div>
+
+<!-- ================= Toast ================= -->
+
+<div
+        id="toast"
+        class="toast">
+
+    <span id="toastMessage">
+
+        Success
+
+    </span>
+
+</div>
+
+<!-- Axios -->
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<!-- Tables JavaScript -->
+
+<script src="js/tables.js"></script>
+
+</body>
+
+</html>

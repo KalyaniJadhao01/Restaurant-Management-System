@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RestaurantMS | Settings</title>
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+    <link rel="stylesheet" href="css/settings.css">
+
+
+</head>
+
+
+<body>
+
+
+    <div class="container">
+
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+
+            <div>
+
+
+                <div class="logo">
+
+                    <i class="fa-solid fa-utensils"></i>
+
+                    <span>
+                        RestaurantMS
+                    </span>
+
+                </div>
+
+
+
+                <ul>
+
+
+                    <li>
+
+                        <a href="dashboard.html">
+
+                            <i class="fa-solid fa-chart-line"></i>
+
+                            Dashboard
+
+                        </a>
+
+                    </li>
+
+
+
+                    <li>
+
+                        <a href="menu.html">
+
+                            <i class="fa-solid fa-bowl-food"></i>
+
+                            Menu
+
+                        </a>
+
+                    </li>
+
+
+
+                    <li>
+
+                        <a href="categories.html">
+
+                            <i class="fa-solid fa-layer-group"></i>
+
+                            Categories
+
+                        </a>
+
+                    </li>
+
+
+
+                    <li>
+
+                        <a href="customers.html">
+
+                            <i class="fa-solid fa-users"></i>
+
+                            Customers
+
+                        </a>
+
+                    </li>
+
+
+
+                    <li>
+
+                        <a href="tables.html">
+
+                            <i class="fa-solid fa-chair"></i>
+
+                            Tables
+
+                        </a>
+
+                    </li>
+
+
+
+                    <li>
+
+                        <a href="orders.html">
+
+                            <i class="fa-solid fa-cart-shopping"></i>
+
+                            Orders
+
+                        </a>
+
+                    </li>
+
+
+
+                    <li>
+
+                        <a href="bills.html">
+
+                            <i class="fa-solid fa-file-invoice-dollar"></i>
+
+                            Bills
+
+                        </a>
+
+                    </li>
+
+
+
+                    <li>
+
+                        <a href="payments.html">
+
+                            <i class="fa-solid fa-credit-card"></i>
+
+                            Payments
+
+                        </a>
+
+                    </li>
+
+
+
+                    <li>
+
+                        <a href="reports.html">
+
+                            <i class="fa-solid fa-chart-pie"></i>
+
+                            Reports
+
+                        </a>
+
+                    </li>
+
+
+
+                    <li class="active">
+
+                        <a href="settings.html">
+
+                            <i class="fa-solid fa-gear"></i>
+
+                            Settings
+
+                        </a>
+
+                    </li>
+
+
+
+                </ul>
+
+
+            </div>
+
+
+
+            <button class="logout-btn" onclick="logout()">
+
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+
+            </button>
+
+
+
+        </aside>
+
+
+
+
+
+        <!-- MAIN CONTENT -->
+
+
+        <main class="main-content">
+
+
+
+            <header class="navbar">
+
+
+                <div>
+
+                    <h2>
+
+                        Settings
+
+                    </h2>
+
+                    <p>
+
+                        Manage application preferences
+
+                    </p>
+
+
+                </div>
+
+
+
+                <div class="profile">
+
+
+                    <i class="fa-solid fa-user-circle"></i>
+
+
+                    <span>
+
+                        Admin
+
+                    </span>
+
+
+                </div>
+
+
+            </header>
+
+
+
+
+
+            <section class="settings-container">
+
+
+
+                <!-- PROFILE CARD -->
+
+
+                <div class="settings-card">
+
+
+                    <div class="card-header">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        <h3>
+                            Admin Profile
+                        </h3>
+
+                    </div>
+
+
+
+                    <div class="profile-info">
+
+
+                        <div class="avatar">
+
+                            <i class="fa-solid fa-user"></i>
+
+                        </div>
+
+
+
+                        <div>
+
+                            <h2 id="userName">
+
+                                Admin
+
+                            </h2>
+
+
+                            <p id="userRole">
+
+                                Administrator
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+                <!-- CHANGE PASSWORD CARD -->
+
+                <div class="settings-card">
+
+
+                    <div class="card-header">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <h3>
+                            Change Password
+                        </h3>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="oldPassword">
+
+                            Current Password
+
+                        </label>
+
+
+                        <input type="password" id="oldPassword" placeholder="Enter current password">
+
+
+                    </div>
+
+
+
+
+                    <div class="form-group">
+
+                        <label for="newPassword">
+
+                            New Password
+
+                        </label>
+
+
+                        <input type="password" id="newPassword" placeholder="Enter new password">
+
+
+                    </div>
+
+
+
+
+                    <div class="form-group">
+
+                        <label for="confirmPassword">
+
+                            Confirm Password
+
+                        </label>
+
+
+                        <input type="password" id="confirmPassword" placeholder="Confirm new password">
+
+
+                    </div>
+
+
+
+                    <button class="save-btn" onclick="changePassword()">
+
+                        <i class="fa-solid fa-key"></i>
+
+                        Update Password
+
+                    </button>
+
+
+                </div>
+
+
+
+
+
+                <!-- RESTAURANT SETTINGS -->
+
+
+                <div class="settings-card">
+
+
+                    <div class="card-header">
+
+                        <i class="fa-solid fa-store"></i>
+
+                        <h3>
+                            Restaurant Information
+                        </h3>
+
+                    </div>
+
+
+
+
+                    <div class="form-group">
+
+                        <label for="restaurantName">
+
+                            Restaurant Name
+
+                        </label>
+
+
+                        <input id="restaurantName" value="RestaurantMS">
+
+
+                    </div>
+
+
+
+
+                    <div class="form-group">
+
+                        <label for="restaurantAddress">
+
+                            Address
+
+                        </label>
+
+
+                        <textarea id="restaurantAddress" placeholder="Restaurant address"></textarea>
+
+
+                    </div>
+
+
+
+
+                    <div class="form-group">
+
+                        <label for="theme">
+
+                            Theme Preference
+
+                        </label>
+
+
+                        <select id="theme" title="Theme Preference">
+
+
+                            <option value="light">
+
+                                Light Mode
+
+                            </option>
+
+
+                            <option value="dark">
+
+                                Dark Mode
+
+                            </option>
+
+
+                        </select>
+
+
+                    </div>
+
+
+
+                    <button class="save-btn" onclick="saveSettings()">
+
+
+                        <i class="fa-solid fa-save"></i>
+
+
+                        Save Settings
+
+
+                    </button>
+
+
+
+                </div>
+
+
+
+
+            </section>
+
+
+
+
+        </main>
+
+
+
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+    <script src="js/settings.js"></script>
+
+
+</body>
+
+</html>

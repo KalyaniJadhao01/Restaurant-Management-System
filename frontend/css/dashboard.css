@@ -1,0 +1,406 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f5f6fa;
+    color:#333;
+}
+
+.container{
+    display:flex;
+    min-height:100vh;
+}
+
+
+/* =====================
+   SIDEBAR
+===================== */
+
+.sidebar{
+    width:260px;
+    background:#1f2937;
+    color:white;
+    padding:25px 18px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    position:fixed;
+    height:100vh;
+}
+
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:22px;
+    font-weight:600;
+    color:#ff7a30;
+    margin-bottom:35px;
+}
+
+
+.logo i{
+    font-size:28px;
+}
+
+
+.sidebar ul{
+    list-style:none;
+}
+
+
+.sidebar li{
+    margin:8px 0;
+}
+
+
+.sidebar a{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    text-decoration:none;
+    color:#d1d5db;
+    padding:13px 15px;
+    border-radius:12px;
+    transition:.3s;
+}
+
+
+.sidebar a:hover{
+    background:#374151;
+    color:white;
+}
+
+
+.sidebar .active a{
+    background:#ff7a30;
+    color:white;
+}
+
+
+.logout-btn{
+
+    border:none;
+    background:#ef4444;
+    color:white;
+    padding:13px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:15px;
+    transition:.3s;
+
+}
+
+
+.logout-btn:hover{
+
+    background:#dc2626;
+
+}
+
+
+
+/* =====================
+   MAIN
+===================== */
+
+
+.main-content{
+
+    margin-left:260px;
+    padding:30px;
+    width:calc(100% - 260px);
+
+}
+
+
+
+/* =====================
+   NAVBAR
+===================== */
+
+
+.navbar{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+
+}
+
+
+.navbar h2{
+
+    font-size:30px;
+
+}
+
+
+.navbar p{
+
+    color:#777;
+    margin-top:5px;
+
+}
+
+
+
+.profile{
+
+    background:white;
+    padding:12px 20px;
+    border-radius:12px;
+    display:flex;
+    gap:10px;
+    align-items:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+
+.profile i{
+
+    color:#ff7a30;
+    font-size:25px;
+
+}
+
+
+
+/* =====================
+   WELCOME
+===================== */
+
+
+.welcome{
+
+    background:linear-gradient(135deg,#ff7a30,#ff9f43);
+    color:white;
+    padding:25px;
+    border-radius:18px;
+    margin-bottom:30px;
+
+}
+
+
+.welcome h2{
+
+    margin-bottom:8px;
+
+}
+
+
+
+/* =====================
+   CARDS
+===================== */
+
+
+.cards{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:22px;
+
+}
+
+
+
+.card{
+
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    transition:.3s;
+
+}
+
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+.card i{
+
+    font-size:32px;
+    color:#ff7a30;
+    margin-bottom:15px;
+
+}
+
+
+.card h4{
+
+    color:#777;
+    font-size:15px;
+    font-weight:500;
+
+}
+
+
+.card h2{
+
+    font-size:32px;
+    margin-top:10px;
+
+}
+
+
+
+/* SPECIAL CARDS */
+
+
+.revenue{
+
+    border-left:6px solid #16a34a;
+
+}
+
+
+.pending{
+
+    border-left:6px solid #f59e0b;
+
+}
+
+
+.completed{
+
+    border-left:6px solid #2563eb;
+
+}
+
+
+
+/* =====================
+   QUICK ACTION
+===================== */
+
+
+.quick-section{
+
+    background:white;
+    margin-top:35px;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+
+.quick-section h3{
+
+    margin-bottom:20px;
+
+}
+
+
+.quick-buttons{
+
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+
+}
+
+
+.quick-buttons a{
+
+    text-decoration:none;
+    color:white;
+    background:#ff7a30;
+    padding:14px 20px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    transition:.3s;
+
+}
+
+
+.quick-buttons a:hover{
+
+    background:#e85d10;
+    transform:translateY(-3px);
+
+}
+
+
+
+
+/* =====================
+   RESPONSIVE
+===================== */
+
+
+@media(max-width:900px){
+
+
+.sidebar{
+
+    position:relative;
+    width:100%;
+    height:auto;
+
+}
+
+
+.container{
+
+    display:block;
+
+}
+
+
+.main-content{
+
+    margin-left:0;
+    width:100%;
+    padding:20px;
+
+}
+
+
+.navbar{
+
+    flex-direction:column;
+    align-items:flex-start;
+    gap:15px;
+
+}
+
+
+}
+
+
+
+@media(max-width:500px){
+
+
+.cards{
+
+    grid-template-columns:1fr;
+
+}
+
+
+.quick-buttons a{
+
+    width:100%;
+    justify-content:center;
+
+}
+
+
+}
